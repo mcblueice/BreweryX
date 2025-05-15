@@ -48,21 +48,123 @@ public enum BarrelWoodType {
     MANGROVE("Mangrove", 9),
     CHERRY("Cherry", 10),
     BAMBOO("Bamboo", 11),
-    CUT_COPPER("Cut Copper", 12,
-        Material.CUT_COPPER, Material.CUT_COPPER_STAIRS,
-        Material.WAXED_CUT_COPPER, Material.WAXED_CUT_COPPER_STAIRS,
-        Material.EXPOSED_CUT_COPPER, Material.EXPOSED_CUT_COPPER_STAIRS,
-        Material.WAXED_EXPOSED_CUT_COPPER, Material.WAXED_EXPOSED_CUT_COPPER_STAIRS,
-        Material.WEATHERED_CUT_COPPER, Material.WEATHERED_CUT_COPPER_STAIRS,
-        Material.WAXED_WEATHERED_CUT_COPPER, Material.WAXED_WEATHERED_CUT_COPPER_STAIRS,
-        Material.OXIDIZED_CUT_COPPER, Material.OXIDIZED_CUT_COPPER_STAIRS,
-        Material.WAXED_OXIDIZED_CUT_COPPER, Material.WAXED_OXIDIZED_CUT_COPPER_STAIRS
+    COPPER("Copper", 12,
+        Material.COPPER_BLOCK, Material.CUT_COPPER, Material.CUT_COPPER_STAIRS,
+        Material.WAXED_COPPER_BLOCK, Material.WAXED_CUT_COPPER, Material.WAXED_CUT_COPPER_STAIRS,
+        Material.EXPOSED_COPPER, Material.EXPOSED_CUT_COPPER, Material.EXPOSED_CUT_COPPER_STAIRS,
+        Material.WAXED_EXPOSED_COPPER, Material.WAXED_EXPOSED_CUT_COPPER, Material.WAXED_EXPOSED_CUT_COPPER_STAIRS,
+        Material.WEATHERED_COPPER, Material.WEATHERED_CUT_COPPER, Material.WEATHERED_CUT_COPPER_STAIRS,
+        Material.WAXED_WEATHERED_COPPER, Material.WAXED_WEATHERED_CUT_COPPER, Material.WAXED_WEATHERED_CUT_COPPER_STAIRS,
+        Material.OXIDIZED_COPPER, Material.OXIDIZED_CUT_COPPER, Material.OXIDIZED_CUT_COPPER_STAIRS,
+        Material.WAXED_OXIDIZED_COPPER, Material.WAXED_OXIDIZED_CUT_COPPER, Material.WAXED_OXIDIZED_CUT_COPPER_STAIRS
     ),
     PALE_OAK("Pale Oak", 13),
+    QUARTZ("Quartz", 14,
+        Material.QUARTZ_BLOCK,
+        Material.SMOOTH_QUARTZ,
+        Material.QUARTZ_BRICKS,
+        Material.QUARTZ_PILLAR,
+        Material.CHISELED_QUARTZ_BLOCK,
+        Material.QUARTZ_STAIRS,
+        Material.SMOOTH_QUARTZ_STAIRS
+    ),
+    END_BLOCKS("End Blocks", 15,
+        Material.PURPUR_BLOCK,
+        Material.PURPUR_PILLAR,
+        Material.PURPUR_STAIRS,
+        Material.END_STONE_BRICKS,
+        Material.END_STONE_BRICK_STAIRS
+    ),
+    SANDSTONE("Sandstone", 16,
+        Material.SANDSTONE,
+        Material.SMOOTH_SANDSTONE,
+        Material.CUT_SANDSTONE,
+        Material.CHISELED_SANDSTONE,
+        Material.RED_SANDSTONE,
+        Material.SMOOTH_RED_SANDSTONE,
+        Material.CUT_RED_SANDSTONE,
+        Material.CHISELED_RED_SANDSTONE,
+        Material.SANDSTONE_STAIRS,
+        Material.SMOOTH_SANDSTONE_STAIRS,
+        Material.RED_SANDSTONE_STAIRS,
+        Material.SMOOTH_RED_SANDSTONE_STAIRS
+    ),
+    EXSTONE("Exstone", 17,
+        Material.GRANITE,
+        Material.POLISHED_GRANITE,
+        Material.GRANITE_STAIRS,
+        Material.POLISHED_GRANITE_STAIRS,
+        Material.DIORITE,
+        Material.POLISHED_DIORITE,
+        Material.DIORITE_STAIRS,
+        Material.POLISHED_DIORITE_STAIRS,
+        Material.ANDESITE,
+        Material.POLISHED_ANDESITE,
+        Material.ANDESITE_STAIRS,
+        Material.POLISHED_ANDESITE_STAIRS
+    ),
+    DEEPSLATE("Deepslate", 18,
+        Material.DEEPSLATE,
+        Material.COBBLED_DEEPSLATE,
+        Material.POLISHED_DEEPSLATE,
+        Material.CHISELED_DEEPSLATE,
+        Material.DEEPSLATE_BRICKS,
+        Material.CRACKED_DEEPSLATE_BRICKS,
+        Material.DEEPSLATE_TILES,
+        Material.CRACKED_DEEPSLATE_TILES,
+        Material.COBBLED_DEEPSLATE_STAIRS,
+        Material.POLISHED_DEEPSLATE_STAIRS,
+        Material.DEEPSLATE_BRICK_STAIRS,
+        Material.DEEPSLATE_TILE_STAIRS
+    ),
+    PRISMARINE("Prismarine", 19,
+        Material.PRISMARINE,
+        Material.PRISMARINE_BRICKS,
+        Material.DARK_PRISMARINE,
+        Material.PRISMARINE_STAIRS,
+        Material.PRISMARINE_BRICK_STAIRS,
+        Material.DARK_PRISMARINE_STAIRS
+    ),
+    NETHER_BRICKS("Nether Bricks", 20,
+        Material.NETHER_BRICKS,
+        Material.CRACKED_NETHER_BRICKS,
+        Material.CHISELED_NETHER_BRICKS,
+        Material.RED_NETHER_BRICKS,
+        Material.NETHER_BRICK_STAIRS,
+        Material.RED_NETHER_BRICK_STAIRS
+    ),
+    BLACKSTONE("Blackstone", 21,
+        Material.BLACKSTONE,
+        Material.POLISHED_BLACKSTONE,
+        Material.POLISHED_BLACKSTONE_BRICKS,
+        Material.CHISELED_POLISHED_BLACKSTONE,
+        Material.CRACKED_POLISHED_BLACKSTONE_BRICKS,
+        Material.OBSIDIAN,
+        Material.CRYING_OBSIDIAN,
+        Material.BLACKSTONE_STAIRS,
+        Material.POLISHED_BLACKSTONE_STAIRS,
+        Material.POLISHED_BLACKSTONE_BRICK_STAIRS
+    ),
+    HONEY_BLOCK("Honey Block", 22,
+        Material.HONEYCOMB_BLOCK,
+        Material.HONEY_BLOCK,
+        Material.SLIME_BLOCK
+    ),
+    MUD_BRICKS("Mud Bricks", 23,
+        Material.MUD_BRICKS,
+        Material.MUD_BRICK_STAIRS
+    ),
+    BRICKS("Bricks", 24,
+        Material.BRICKS,
+        Material.BRICK_STAIRS
+    ),
+    ICE("ICE", 25,
+        Material.BLUE_ICE,
+        Material.PACKED_ICE
+    ),
     // If you're adding more wood types, add them above 'NONE'
     // Remember to also add the wood type to the Group enum
     NONE("None", -1, true);
-
 
     public static final int MAX_DISTANCE = Group.MAX_DISTANCE + 1;
     public static final int COPPER_DISTANCE = Group.SPECIAL_DISTANCE + 1;
@@ -212,7 +314,7 @@ public enum BarrelWoodType {
                 return type;
             }
             if (
-                type == CUT_COPPER && !material.name().toUpperCase().contains("SLAB")
+                type == COPPER && !material.name().toUpperCase().contains("SLAB")
                 && material.name().toUpperCase().contains(type.name().toUpperCase())
                 // ^ Needed because of the waxed/exposed/weathered/oxidized prefix
             ) {
@@ -288,7 +390,7 @@ public enum BarrelWoodType {
         HOT_HUMID(new Properties.Normal(Temperature.HOT, Humidity.HUMID), JUNGLE, MANGROVE, BAMBOO),
         HOT_DRY(new Properties.Normal(Temperature.HOT, Humidity.DRY), ACACIA),
         NETHER(new Properties.Normal(Temperature.NETHER, Humidity.DRY), CRIMSON, WARPED),
-        SPECIAL(new Properties.Special(), CUT_COPPER);
+        SPECIAL(new Properties.Special(), COPPER, QUARTZ, END_BLOCKS, SANDSTONE, EXSTONE, DEEPSLATE, PRISMARINE, NETHER_BRICKS, BLACKSTONE, HONEY_BLOCK, MUD_BRICKS, BRICKS, ICE);
 
         public static final int MAX_DISTANCE = 4;
         public static final int SPECIAL_DISTANCE = 3;
