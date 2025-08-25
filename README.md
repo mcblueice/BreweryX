@@ -13,7 +13,7 @@
 
 ### Brewery is a Plugin for an alternate brewing process, including alcoholic Potions.
 
-Works with Spigot, Paper, and Folia from `1.21.4` to `1.8.9`!
+Works with Spigot, Paper, and Folia from `1.21.8` to `1.8.9`!
 
 The somewhat difficult brewing process rewards you with a diversity of Potions, which, through their effects, create a drunkenness that has never existed in Minecraft before.
 
@@ -60,7 +60,7 @@ The somewhat difficult brewing process rewards you with a diversity of Potions, 
 
 ### For Java developers, find our repository for the BreweryX API [here](https://repo.jsinco.dev/#/releases/com/dre/brewery/BreweryX).
 
-Check [the documentation](https://brewery.lumamc.net/api/api/) for more information.
+Check [the documentation](https://breweryx.breweryteam.dev/docs/for-developers/plugin-api/) for more information.
 
 ### License
 

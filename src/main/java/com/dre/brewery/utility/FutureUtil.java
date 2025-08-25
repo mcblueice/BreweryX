@@ -18,16 +18,19 @@
  * along with BreweryX. If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.dre.brewery.integration.barrel;
+package com.dre.brewery.utility;
 
-import com.dre.brewery.api.events.barrel.BarrelAccessEvent;
-import com.dre.brewery.integration.LandsHook;
-import org.bukkit.Location;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
-public class LandsBarrel {
-    public static boolean checkAccess(BarrelAccessEvent event) {
-        Location bLoc = event.getSpigot().getLocation();
+public class FutureUtil {
 
-        return LandsHook.LANDS.hasBarrelAccess(event.getPlayer(), bLoc);
+    private FutureUtil() {
+        throw new UnsupportedOperationException("Utility class");
+    }
+
+    public static <T> CompletableFuture<List<T>> mergeFutures(List<CompletableFuture<T>> completableFutureList) {
+        return CompletableFuture.allOf(completableFutureList.toArray(CompletableFuture[]::new))
+            .thenApplyAsync(ignored -> completableFutureList.stream().map(CompletableFuture::join).toList());
     }
 }

@@ -24,6 +24,7 @@ import org.bukkit.Material;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -37,25 +38,32 @@ public enum BarrelAsset {
     FENCE; // Optional: Alt 3 Block
 
 
-    private static final Map<BarrelAsset, Set<Material>> BARREL_ASSET_LIST_MAP = new HashMap<>();
+    private static final Map<BarrelWoodType, Map<BarrelAsset, Set<Material>>> barrelAssetListMap = new HashMap<>();
 
-    static {
-        for (BarrelAsset asset : values()) {
-            BARREL_ASSET_LIST_MAP.put(asset, new HashSet<>());
-        }
-    }
-
-    public static void addBarrelAsset(BarrelAsset asset, Material... materials) {
-        if (materials == null || materials.length == 0) {
+    public static void addBarrelAsset(BarrelWoodType type, BarrelAsset asset, Material... materials) {
+        if (materials == null) {
             return;
         }
-        Collections.addAll(BARREL_ASSET_LIST_MAP.get(asset), Arrays.stream(materials).filter(Objects::nonNull).toArray(Material[]::new));
+        Collections.addAll(barrelAssetListMap
+                .computeIfAbsent(type, ignored -> new HashMap<>())
+                .computeIfAbsent(asset, ignored -> new HashSet<>()),
+            Arrays.stream(materials).filter(Objects::nonNull).toArray(Material[]::new)
+        );
     }
 
     public static boolean isBarrelAsset(BarrelAsset assetType, Material material) {
         if (material == null) {
             return false;
         }
-        return BARREL_ASSET_LIST_MAP.get(assetType).contains(material);
+
+        return barrelAssetListMap.values().stream()
+            .map((b) -> b.getOrDefault(assetType, Set.of()))
+            .anyMatch((materialSet) -> materialSet.contains(material));
+    }
+
+    public static Set<Material> getMaterialsOf(BarrelWoodType type) {
+        var output = EnumSet.noneOf(Material.class);
+        barrelAssetListMap.get(type).values().forEach(output::addAll);
+        return output;
     }
 }

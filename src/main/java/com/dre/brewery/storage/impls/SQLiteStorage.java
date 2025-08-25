@@ -34,6 +34,7 @@ import com.dre.brewery.storage.records.SerializableBarrel;
 import com.dre.brewery.storage.records.SerializableCauldron;
 import com.dre.brewery.storage.records.SerializableWakeup;
 import com.dre.brewery.storage.serialization.SQLDataSerializer;
+import com.dre.brewery.utility.FutureUtil;
 import com.dre.brewery.utility.Logging;
 import org.jetbrains.annotations.Nullable;
 
@@ -48,6 +49,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 // Dupe code from MySQLStorage
 @SuppressWarnings({ "SqlSourceToSinkFlow", "Duplicates" })
@@ -243,19 +245,21 @@ public class SQLiteStorage extends DataManager {
     }
 
     @Override
-    public Barrel getBarrel(UUID id) {
+    public CompletableFuture<Barrel> getBarrel(UUID id) {
         SerializableBarrel serializableBarrel = getGeneric(id.toString(), "barrels", SerializableBarrel.class);
         if (serializableBarrel != null) {
             return serializableBarrel.toBarrel();
         }
-        return null;
+        return CompletableFuture.completedFuture(null);
     }
 
     @Override
-    public Collection<Barrel> getAllBarrels() {
-        return getAllGeneric("barrels", SerializableBarrel.class).stream()
-            .map(SerializableBarrel::toBarrel)
-            .toList();
+    public CompletableFuture<List<Barrel>> getAllBarrels() {
+        return FutureUtil.mergeFutures(
+            getAllGeneric("barrels", SerializableBarrel.class).stream()
+                .map(SerializableBarrel::toBarrel)
+                .toList()
+        );
     }
 
     @Override

@@ -186,7 +186,6 @@ public class CommandUtil {
             cmds.add(lang.getEntry("Help_Distill"));
             cmds.add(lang.getEntry("Help_Age"));
             cmds.add(lang.getEntry("Help_Simulate"));
-            cmds.add(lang.getEntry("Help_Simulate2"));
         }
 
         if (DRINK.checkCached(sender) || DRINK_OTHER.checkCached(sender)) {

@@ -152,6 +152,9 @@ public class Config extends AbstractOkaeriConfigFile {
     @LocalizedComment("config.alwaysShowAlcIndicator")
     private boolean alwaysShowAlcIndicator = true;
 
+    @LocalizedComment("config.showRuinedBrewHints")
+    private boolean showRuinedBrewHints = false;
+
     @LocalizedComment("config.showBrewer")
     private boolean showBrewer = false;
 
@@ -199,6 +202,9 @@ public class Config extends AbstractOkaeriConfigFile {
 
     @LocalizedComment("config.hangoverDays")
     private int hangoverDays = 7;
+
+    @LocalizedComment("config.onlyAllowBrewsInBarrels")
+    private boolean onlyAllowBrewsInBarrels = false;
 
     @LocalizedComment("config.colorInBarrels-Brewer")
     private boolean colorInBarrels = true;
